@@ -1,71 +1,50 @@
-class MyName:
-    """Опис класу / Документація
-    """
-    total_names = 0  # Class Variable
+name = 'Artem'
+surname = 'Dmysh'
 
-    def __init__(self, name=None) -> None:
-        self.name = name if name is not None else self.anonymous_user().name  # Class attributes / Instance variables
-        MyName.total_names += 1  # modify class variable
-        self.my_id = self.total_names
+print(name + ' ' + surname)
 
-    @property
-    def whoami(self):
-        """Class property
-        return: повертаємо імя
-        """
-        return f"My name is {self.name}"
+firstValue = 20
+secondValue = 20
+print(firstValue + secondValue)
 
-    @property
-    def my_email(self) -> str:
-        """Class property
-        return: повертаємо емейл
-        """
-        return self.create_email()
+name = 'Artem'
+array = [1]
+array.append(2)
+print(array)
+print('the length of the word: ',len(name))
 
-    def create_email(self) -> str:
-        """Instance method
-        """
-        return f"{self.name}@itcollege.lviv.ua"
+letters = ["a", "b", "c"]
+for i in range(len(letters)):
+    print(f"{i} {letters[i]}")
 
-    @classmethod
-    def anonymous_user(cls):
-        """Class method
-        """
-        return cls("Anonymous")
+for i in range(1,4):
+    print(i)
 
-    @staticmethod
-    def say_hello(message="Hello to everyone!"):
-        """Static method
-        """
-        return f"You say: {message}"
+checkData = name == surname
+print(checkData)
+
+is_sunny = True
+is_raining = False
+
+if is_sunny:
+    print("Сьогодні сонячно, виходь на вулицю!")
+else:
+    print("Сьогодні не сонячно, залишайся вдома.")
+
+if is_raining:
+    print("Візьми парасольку!")
+else:
+    print("Парасолька не потрібна.")
+
+A = 0
+try:
+    print("Що буде якщо", 10/A, "?")
+except Exception as e:
+    print(e)
+finally:
+    print("А вот воно що!")
 
 
-print("Let's Start!")
 
-names = ("Bohdan", "Marta", None)
-all_names = {name: MyName(name) for name in names}
-
-for name, me in all_names.items():
-    print(f"""{">*<"*20}
-This is object: {me} 
-This is object attribute: {me.name} / {me.my_id}
-This is {type(MyName.whoami)}: {me.whoami} / {me.my_email}
-This is {type(me.create_email)} call: {me.create_email()}
-This is static {type(MyName.say_hello)} with defaults: {me.say_hello()} 
-This is class variable {type(MyName.total_names)}: from class {MyName.total_names} / from object {me.total_names}
-{"<*>"*20}""")
-
-def countWords(names):
-    for name in names:
-        if name is not None: 
-            letter_count = len(name)
-            print(f"Ім'я: {name}, Кількість букв: {letter_count}")
-
-print(MyName.say_hello("Привіт, як справи?"))
-
-countWords(names)
-
-for i in range(len(names)):
-    print('Names: ', i)
-
-print(f"We are done. We create {me.total_names} names! ??? Why {MyName.total_names}?")
+this_is_lambda = lambda first, last: f'Цей код написав: {first} {last}'
+print("Це її виклик:", this_is_lambda('Artem', 'Dmysh'))
